@@ -1,4 +1,4 @@
-@include "theme";
-@include "mixins";
-@include "silent-classes";
-@include "base-styles";
+@import "base/theme";
+@import "base/mixins";
+@import "base/silent-classes";
+@import "base/base-styles";
