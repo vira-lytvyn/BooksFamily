@@ -8,8 +8,10 @@ This is not just another tools for sharing books experience and activities. This
 Technologies stack
 
 | Name      |     Reason to use      |  Alternative |
-|-----------|:----------------------:|-------------:|
+|:-----------:|:----------------------:|:-------------:|
 | AngularJS | powerful and popular | Durandal/Knockout/React/Meteor|
 | HTML5 | the newest one | no one :) |
 | SCSS, CSS3 | personal taste | LESS, SaaS, Susy|
 | Foundation | new, lightweight, popular | Bootstrap/Closure? |
+| GruntJS | modern, famous, helpful | GulpJs |
+| BowerJS | just because it's feshionable | ? |
