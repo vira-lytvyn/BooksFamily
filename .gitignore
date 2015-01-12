@@ -1,9 +1,5 @@
 node_modules
+dist
 .tmp
 .sass-cache
-
-*.log
-
-production/
-
-.idea/
+bower_components
