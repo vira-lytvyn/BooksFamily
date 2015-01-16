@@ -5,13 +5,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         copy: {
-                main: {
-                    expand: true,
-                    src: 'app/*.html',
-                    dest: 'production/',
-                    flatten: true
-                }
-            },
+            main: {
+                expand: true,
+                src: 'app/*.html',
+                dest: 'production/',
+                flatten: true
+            }
+        },
         sass: {
             dist: {
                 options: {
