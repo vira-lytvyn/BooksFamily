@@ -1,14 +1,5 @@
 node_modules
-public
+dist
 .tmp
 .sass-cache
-client/bower_components
-dist
-/server/config/local.env.js
-
-*.log
-
-build/
-dist/
-
-.idea/
+bower_components
