@@ -21,15 +21,27 @@ Technologies stack
 ===
 Build instructions
 
+Just become a friens with Command Prompt ;)
+
 1. Install globaly the latest versions of 
 	- Git
 	- Node.js
 	- Bower.js
 	- Grunt.js
 2. Install SASS
-	- Ruby
-	- Compass
+	- Ruby 
+		- download http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.8.7-p374.exe?direct
+		- inslatt it globaly and check if this was added to system path (type ruby -v grom console)
+		- ruby -v
+		- gem -v
 	- SASS
-3. Run from console:
+		- Open your Terminal or Command Prompt.
+		- gem install sass
+		- sass -v
+	- Compass
+		- Open your Terminal or Command Prompt.
+		- gem install compass
+		- compass -v
+3. Run from the Terminal:
 	- npm install
 	- bower install
