@@ -16,3 +16,20 @@ Technologies stack
 | GruntJS | modern, famous, helpful | GulpJs |
 | BowerJS | just because it's feshionable | ? |
 | fontAwesome | easy to use, save a lot of time and resources| svg icons |
+
+
+===
+Build instructions
+
+1. Install globaly the latest versions of 
+	- Git
+	- Node.js
+	- Bower.js
+	- Grunt.js
+2. Install SASS
+	- Ruby
+	- Compass
+	- SASS
+3. Run from console:
+	- npm install
+	- bower install
