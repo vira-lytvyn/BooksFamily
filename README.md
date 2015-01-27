@@ -19,6 +19,23 @@ Technologies stack
 
 
 ===
+Approaches
+
+- SPA (single page application)
+- mobile first
+- graseful degradation
+
+
+===
+Browsers support
+
+- Chrome (latest version)
+- Firefox (latest version)
+- Chrome for Mobile (latest version)
+- Firefox for Mobile (latest version)
+
+
+===
 Build instructions
 
 Just become a friens with Command Prompt ;)
