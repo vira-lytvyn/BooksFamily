@@ -27,14 +27,14 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= booksFamily.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:custom', 'concat', 'uglify'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       style: {
         files: ['<%= booksFamily.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['sass']
+        tasks: ['newer:copy:styles', 'sass']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= booksFamily.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '<%= booksFamily.dist %>/styles/{,*/}*.css',
           '<%= booksFamily.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -111,21 +111,6 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -150,59 +135,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Renames files for browser caching purposes
-    filerev: {
-      dist: {
-        src: [
-          '<%= booksFamily.dist %>/scripts/{,*/}*.js',
-          '<%= booksFamily.dist %>/styles/{,*/}*.css',
-          '<%= booksFamily.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= booksFamily.dist %>/styles/fonts/*'
-        ]
-      }
-    },
-
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      html: '<%= booksFamily.app %>/index.html',
-      options: {
-        dest: '<%= booksFamily.dist %>',
-        flow: {
-          html: {
-            steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
-            },
-            post: {}
-          }
-        }
-      }
-    },
-
-    // Performs rewrites based on filerev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= booksFamily.dist %>/{,*/}*.html'],
-      css: ['<%= booksFamily.dist %>/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: ['<%= booksFamily.dist %>','<%= booksFamily.dist %>/images']
-      }
-    },
-
-    // The following *-min tasks will produce minified files in the dist folder
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    cssmin: {
-      dist: {
-        files: {
-          '<%= booksFamily.dist %>/styles/main.css': [
-            '.tmp/styles/{,*/}*.css'
-          ]
-        }
-      }
-    },
     uglify: {
       dist: {
         files: {
@@ -212,55 +144,9 @@ module.exports = function (grunt) {
         }
       }
     },
+    
     concat: {
       dist: {}
-    },
-
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= booksFamily.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= booksFamily.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= booksFamily.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= booksFamily.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= booksFamily.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= booksFamily.dist %>'
-        }]
-      }
-    },
-
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= booksFamily.dist %>/*.html']
-      }
     },
 
     // Copies remaining files to places other tasks can use
@@ -278,17 +164,12 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*'
           ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= booksFamily.dist %>/images',
-          src: ['generated/*']
         }]
       },
       styles: {
         expand: true,
         cwd: '<%= booksFamily.app %>/styles',
-        dest: '.tmp/styles/',
+        dest: '<%= booksFamily.dist %>/styles/',
         src: '{,*/}*.css'
       }
     }
@@ -303,8 +184,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'server',
-      'autoprefixer',
+      'copy',
+      'sass',
       'connect:livereload',
       'watch'
     ]);
@@ -318,16 +199,10 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'useminPrepare',
-    'autoprefixer',
+    'sass',
     'concat',
     'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'htmlmin'
+    'uglify'
   ]);
 
   grunt.registerTask('default', [
