@@ -1,39 +1,11 @@
-// sass: {
-//     dist: {
-//         options: {
-//             style: 'compressed'
-//         },
-//         files: {
-//             'production/css/style.css': 'app/scss/style.scss'
-//         }
-//     }
-// },
-// watch: {
-//     // style: {
-//     //     files: ['app/scss/*.scss'],
-//     //     tasks: ['sass'],
-//     //     options: {
-//     //         spawn: false
-//     //     }
-//     // }
-// }
 
-// Generated on 2015-01-17 using generator-angular 0.10.0
 'use strict';
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
 
   // Configurable paths for the application
   var appConfig = {
@@ -60,13 +32,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         }
       },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
-      },
-      compass: {
+      style: {
         files: ['<%= booksFamily.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['sass']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -106,22 +74,6 @@ module.exports = function (grunt) {
           }
         }
       },
-      test: {
-        options: {
-          port: 9001,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
-        }
-      },
       dist: {
         options: {
           open: true,
@@ -141,12 +93,6 @@ module.exports = function (grunt) {
           'Gruntfile.js',
           '<%= booksFamily.app %>/scripts/{,*/}*.js'
         ]
-      },
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
       }
     },
 
@@ -192,31 +138,14 @@ module.exports = function (grunt) {
       }
     },
 
-    // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
-      options: {
-        sassDir: '<%= booksFamily.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= booksFamily.app %>/images',
-        javascriptsDir: '<%= booksFamily.app %>/scripts',
-        fontsDir: '<%= booksFamily.app %>/styles/fonts',
-        importPath: './bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
-      },
+    // Compiles Sass to CSS 
+    sass: {
       dist: {
         options: {
-          generatedImagesDir: '<%= booksFamily.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          debugInfo: true
+          style: 'compressed'
+        },
+        files: {
+          '<%= booksFamily.dist %>/styles': '<%= booksFamily.app %>/styles'
         }
       }
     },
@@ -265,27 +194,27 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= booksFamily.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= booksFamily.dist %>/scripts/scripts.js': [
-    //         '<%= booksFamily.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= booksFamily.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= booksFamily.dist %>/scripts/scripts.js': [
+            '<%= booksFamily.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     imagemin: {
       dist: {
@@ -327,19 +256,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: ['*.js', '!oldieshim.js'],
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
     // Replace Google CDN references
     cdnify: {
       dist: {
@@ -357,7 +273,6 @@ module.exports = function (grunt) {
           dest: '<%= booksFamily.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '.htaccess',
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
@@ -376,29 +291,6 @@ module.exports = function (grunt) {
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }
-    },
-
-    // Run some tasks in parallel to speed up the build process
-    concurrent: {
-      server: [
-        'compass:server'
-      ],
-      test: [
-        'compass'
-      ],
-      dist: [
-        'compass:dist',
-        'imagemin',
-        'svgmin'
-      ]
-    },
-
-    // Test settings
-    karma: {
-      unit: {
-        configFile: 'test/karma.conf.js',
-        singleRun: true
-      }
     }
   });
 
@@ -411,7 +303,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'concurrent:server',
+      'server',
       'autoprefixer',
       'connect:livereload',
       'watch'
@@ -423,22 +315,12 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test',
-    'karma'
-  ]);
-
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',
@@ -450,7 +332,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };

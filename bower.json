@@ -12,6 +12,8 @@
     "Library"
   ],
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "materialize": "~0.95.3"
+  },
   "devDependencies": {}
 }

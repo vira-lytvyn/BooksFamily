@@ -59,10 +59,6 @@ Just become a friens with Command Prompt ;)
 		- Open your Terminal or Command Prompt.
 		- gem install sass
 		- sass -v
-	- Compass
-		- Open your Terminal or Command Prompt.
-		- gem install compass
-		- compass -v
 3. Run from the Terminal:
 	- npm install
 	- bower install
