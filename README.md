@@ -8,17 +8,16 @@ Technologies stack
 
 | Name      |     Reason to use      |  Alternative |
 |:-----------:|:----------------------:|:-------------:|
-| AngularJS | powerful and popular | Durandal/Knockout|
+| ? | powerful and popular | Durandal/Knockout/Angular/Ember/React|
 | HTML5 | the newest one | no one :) |
 | SCSS, CSS3 | personal taste | LESS, SaaS, Susy|
-| Foundation | new, lightweight, popular | Bootstrap/Closure? |
+| Materialize | in trend, helps to create material design, has a lot of usefull features and no need to use external plugins | Foundation |
 | GruntJS | modern, famous, helpful | GulpJs |
 | BowerJS | just because it's feshionable | ? |
-| fontAwesome | easy to use, save a lot of time and resources| svg icons |
+| CouchDB + PouchDB | interesting, looks to meet expectations and requirments in the best way |MongoDB|
 
 and ... 
-- Yeoman + Grunt + Bower + MEAN 
-- Sass/SCSS + CSS3 + HTML5
+
 - Git, Github, git-flow, 
 - Console `=)` (cmd), Sublime Text 3, SourceTree
 
@@ -29,7 +28,6 @@ Approaches
 - mobile first
 - graseful degradation
 
-
 ===
 Browsers support
 
@@ -37,7 +35,6 @@ Browsers support
 - Firefox (latest version)
 - Chrome for Mobile (latest version)
 - Firefox for Mobile (latest version)
-
 
 ===
 Build instructions
