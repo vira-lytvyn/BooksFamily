@@ -1,73 +1,32 @@
 <!doctype html>
-<html class="no-js">
+<html>
   <head>
     <meta charset="utf-8">
     <title>BooksFamily | Home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/foundation.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
   </head>
-  <body ng-app="booksFamilyApp">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">booksFamily</h3>
-      </div>
-
-      <!-- <header class="main-header">
-        <nav class="site-nav">
-            <a href="#" class="nav-link site-logo">BooksFamily</a>
-            <a href="#" class="site-nav-link nav-link">Books</a>
-            <a href="#" class="site-nav-link nav-link">Authors</a>
-            <a href="#" class="site-nav-link nav-link">About</a>
-            <a href="#" class="site-nav-link nav-link">Log in</a>
-            <a href="#" class="site-nav-link nav-link">Sign up</a>
-        </nav>
-        <h1 class="greeting">Hi, friend! This site will help you to expand your Love of Books, we hope so %)</h1>
-      </header> -->
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+    <header class="main-header">
+      <nav class="site-nav">
+          <a href="#" class="nav-link site-logo">BooksFamily</a>
+          <a href="#" class="site-nav-link nav-link">Books</a>
+          <a href="#" class="site-nav-link nav-link">Authors</a>
+          <a href="#" class="site-nav-link nav-link">About</a>
+          <a href="#" class="site-nav-link nav-link">Log in</a>
+          <a href="#" class="site-nav-link nav-link">Sign up</a>
+      </nav>
+      <h1 class="greeting">Hi, friend! This site will help you to expand your Love of Books, we hope so %)</h1>
+    </header>
+    <main class="main-wrapper">
+        <section class="main-section content-section">There should be subsections like The newest books, The most popular authors etc.</section>
+        <aside class="main-section aside-section">There could be some news or statistics, or some additional menu or even special surch. When user is loggeg on some recomendations may be located here ar some adds...</aside>
+    </main>
+    <footer class="main-footer">
+        &copy; Books Family Team, 7Ya)
+    </footer>
 </body>
 </html>
