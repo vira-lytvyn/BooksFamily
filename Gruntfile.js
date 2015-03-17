@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= booksFamily.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:custom', 'concat', 'uglify'],
+        tasks: ['newer:jshint', 'concat', 'uglify'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
