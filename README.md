@@ -15,10 +15,13 @@ Technologies stack
 | Angular | powerful and popular | Durandal/Knockout/Angular/Ember/React|
 | HTML5 | the newest one | no one :) |
 | SCSS, CSS3 | personal taste | LESS, SaaS, Susy|
-| Materialize | in trend, helps to create material design, has a lot of usefull features and no need to use external plugins | Foundation |
-| GruntJS | modern, famous, helpful | GulpJs |
+| Materialize | in trend, helps to create material design, has a lot of usefull features and no need to use external plugins | Foundation/Bootstrap |
+| GruntJS | modern, famous, helpful | GulpJs/Broccoli |
 | BowerJS | just because it's feshionable | ? |
 | MongoDB | interesting, looks to meet expectations and requirments in the best way |CouchDB + PouchDB|
+
+additional libraries and tools:
+- angular-formly - to build functional forms in easier and clearer way
 
 and ... 
 
@@ -29,7 +32,7 @@ and ...
 Approaches
 
 - SPA (single page application)
-- mobile first
+- desktop first (mobile app for Android is planning to release)
 - graseful degradation
 
 ===
@@ -51,14 +54,14 @@ Just become a friens with Command Prompt ;)
 	- Bower.js
 	- Grunt.js
 2. Install SASS
-	- Ruby 
+	- Ruby (to compile Sass)
 		- download http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.8.7-p374.exe?direct
 		- inslatt it globaly and check if this was added to system path (type ruby -v grom console)
 		- ruby -v
 		- gem -v
-	- SASS
+	- Sass
 		- Open your Terminal or Command Prompt.
-		- gem install sass
+		- gem install Sass
 		- sass -v
 3. Run from the Terminal:
 	- npm install

@@ -1,22 +1,27 @@
 'use strict';
 
 angular.module('booksFamilyApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $http, socket) {
+    $scope.newestBooks = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    $http.get('/api/books').success(function(newestBooks) {
+      $scope.newestBooks = newestBooks;
+      socket.syncUpdates('book', $scope.newestBooks);
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addBook = function() {
+      if($scope.newBook === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/books', { name: $scope.newBook });
+      $scope.newBook = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteBook = function(book) {
+      $http.delete('/api/books/' + book._id);
     };
+
+    $scope.$on('$destroy', function () {
+      socket.unsyncUpdates('book');
+    });
   });
