@@ -34,6 +34,7 @@ Approaches
 - SPA (single page application)
 - desktop first (mobile app for Android is planning to release)
 - graseful degradation
+- material design
 
 ===
 Browsers support
