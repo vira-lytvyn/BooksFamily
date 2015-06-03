@@ -46,11 +46,14 @@ Browsers support
 ===
 Build instructions
 
+Actions described below allows you to run up app locally.
+
 Just become a friens with Command Prompt ;)
 
 1. Install globaly the latest versions of 
 	- Git
 	- Node.js
+	- MongoDB
 	- Bower.js
 	- Grunt.js
 2. Install SASS
@@ -66,3 +69,4 @@ Just become a friens with Command Prompt ;)
 3. Run from the Terminal:
 	- npm install
 	- bower install
+	- grunt serve(please, run mongod from your local data directory before doing this)
