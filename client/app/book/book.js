@@ -12,7 +12,7 @@ angular.module('booksFamilyApp')
         url: '/newBook',
         templateUrl: 'app/bookForm/bookForm.html',
         controller: 'BookCtrl'
-      }
+      })
       .state('edit', {
         url: '/book/:id',
         templateUrl: 'app/bookForm/bookForm.html',
