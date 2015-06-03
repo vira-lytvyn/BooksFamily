@@ -17,10 +17,10 @@
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
     "api-check": "~7.0.0",
-    "angular-formly": "~6.0.1"
-  },
-  "devDependencies": {
+    "angular-formly": "~6.0.1",
     "angular-mocks": ">=1.2.*",
-    "angular-scenario": ">=1.2.*"
-  }
+    "angular-scenario": ">=1.2.*",
+    "angular-material": "~0.9.7"
+  },
+  "devDependencies": {}
 }
