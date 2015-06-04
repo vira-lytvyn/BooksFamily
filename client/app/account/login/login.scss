@@ -28,3 +28,9 @@ $btnGithubBackgroundHighlight:      #ccc;
 .btn-github {
   @include button-variant($btnTextAlt, $btnGithubBackground, $btnGithubBackgroundHighlight);
 }
+
+md-whiteframe {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+}
