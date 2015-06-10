@@ -10,35 +10,6 @@ So user will be able to choose what is more suitable for him.
 It is also possible, that first version of webapp will be only for desktop(it means not responsive).
 
 ===
-Technologies stack
-
-| Name      |     Reason to use      |  Alternative |
-|:-----------:|:----------------------:|:-------------:|
-| Angular | powerful and popular | Durandal/Knockout/Angular/Ember/React|
-| HTML5 | the newest one | no one :) |
-| SCSS, CSS3 | personal taste | LESS, SaaS, Susy|
-| Materialize | in trend, helps to create material design, has a lot of usefull features and no need to use external plugins | Foundation/Bootstrap |
-| GruntJS | modern, famous, helpful | GulpJs/Broccoli |
-| BowerJS | just because it's feshionable | ? |
-| MongoDB | interesting, looks to meet expectations and requirments in the best way |CouchDB + PouchDB|
-
-additional libraries and tools:
-- angular-formly - to build functional forms in easier and clearer way
-
-and ... 
-
-- Git, Github, git-flow, 
-- Console `=)` (cmd), Sublime Text 3, SourceTree
-
-===
-Approaches
-
-- SPA (single page application)
-- desktop first (mobile app for Android is planning to release)
-- graseful degradation
-- material design
-
-===
 Browsers support
 
 - Chrome (latest version)
