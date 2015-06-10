@@ -6,6 +6,8 @@ This is not just another tools for sharing books experience and activities. This
 There are going to be a responsive web app, but it will share server side with Android app. 
 So user will be able to choose what is more suitable for him. 
 It is also possible, that first version of webapp will be only for desktop(it means not responsive).
+
+
 ===
 Browsers support
 
