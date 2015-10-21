@@ -27,7 +27,7 @@
   "devDependencies": {},
   "scripts": {},
   "engines": {},
-  "license": "",
+  "license": "MIT",
   "gitHead": "",
   "bugs": {
     "url": "https://github.com/vira-lytvyn/BooksFamily/issues"
