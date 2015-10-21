@@ -1,0 +1,37 @@
+{
+  "name": "BooksFamily",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vira-lytvyn/BooksFamily"
+  },
+  "author": {
+    "name": "vira lytvyn",
+    "email": "baterfluy@gmail.com",
+    "url": ""
+  },
+  "tags": [
+    "book",
+    "library",
+    "tool",
+    "manage",
+    "organize",
+    "home"
+  ],
+  "files": [],
+  "bin": {},
+  "man": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {},
+  "license": "",
+  "gitHead": "",
+  "bugs": {
+    "url": "https://github.com/vira-lytvyn/BooksFamily/issues"
+  },
+  "dist": {},
+  "directories": {}
+}
